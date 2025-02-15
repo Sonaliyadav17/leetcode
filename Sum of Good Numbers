@@ -1,0 +1,14 @@
+class Solution {
+    public int sumOfGoodNumbers(int[] nums, int k) {
+        int sum = 0 ;
+        int n = nums.length;
+        for(int i = 0 ; i < n; i++){
+            int left = (i-k >= 0)? nums[i-k] : Integer.MIN_VALUE;
+            int right = (i+k < n)? nums[i+k] : Integer.MIN_VALUE;
+            if(nums[i] > left && nums[i] > right){
+                sum += nums[i];
+            }
+        }
+        return sum;
+    }
+}
